@@ -22,12 +22,50 @@ To write a Python program to build and evaluate the given Expression tree.
 ## PROGRAM:
 
 ```
-WRITE YOUR CODE
+#Reg.No: 212222060292
+#Name: Vijay Aravind S
+#Add Your Code Here
+from binarytree import build,Node
+class Node:
+    def __init__(self, val, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def isLeaf(node):
+    return node.left is None and node.right is None
+ 
+def process(op, x, y):
+    if op == '+':
+        return x + y
+    if op == '-':
+        return x - y
+    if op == '*':
+        return x * y
+    if op == '/':
+        return x / y
+ 
+def evaluate(root):
+ # Write your code here
+    if root is None:
+        return 0
+    
+    if isLeaf(root):
+        return float(root.val)
+    
+    x=evaluate(root.left)
+    y=evaluate(root.right)
+    return process(root.val,x,y)
+    
+l=['+','*',3,8,4]
+root=build(l)
+print("The value of the expression tree is",evaluate(root))
 ```
 
 ## OUTPUT:
-```
-```
+<img width="1187" height="191" alt="image" src="https://github.com/user-attachments/assets/f3852ec1-b22f-4a37-a987-f6b0217f86dd" />
+
+
 
 ## RESULT:
-
+Therefore, the output is the example to write a Python program to build and evaluate the given Expression tree.
